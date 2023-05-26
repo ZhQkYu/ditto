@@ -60,7 +60,7 @@ class DittoModel(nn.Module):
         else:
             enc = self.bert(x1)[0][:, 0, :]
 
-        return self.fc(enc) # .squeeze() # .sigmoid()
+        return self.fc(enc) # .squeeze() # .sigmoid()    # 在bert后面加了一个线性层（hidden, 2）输出为softmax，使用交叉熵损失函数
 
 
 def evaluate(model, iterator, threshold=None):
